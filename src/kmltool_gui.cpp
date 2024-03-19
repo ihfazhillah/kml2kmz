@@ -1,6 +1,7 @@
 #include <wx/wx.h>
 #include <iostream>
 #include <string>
+#include <filesystem>
 
 #include "../lib/ui/kmltool.h"
 #include <wx/event.h>
@@ -31,6 +32,11 @@ wxIMPLEMENT_APP(KMLToolApp);
 bool KMLToolApp::OnInit(){
     MainFrame * view = new MainFrame(nullptr);
     this->controller = new KMLToolController(view);
+
+    // default directory
+    std::string curdir = std::filesystem::current_path().string();
+    view->m_dir_output->SetDirName(wxFileName(curdir));
+
     this->controller->show();
     return true;
 }

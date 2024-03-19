@@ -11,6 +11,13 @@ ubuntu user can install it by
 apt install libarchive-dev
 ```
 
+- wxwidgets
+
+ubuntu user can install id by
+```
+apt install libwxgtk3.2-dev 
+```
+
 ## Build
 
 ```

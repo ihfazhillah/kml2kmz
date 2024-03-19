@@ -22,6 +22,7 @@ class KMLToolApp: public wxApp{
     public: 
         KMLToolController *controller;
         bool OnInit() override;
+        virtual int OnExit() override;
 };
 
 
@@ -32,6 +33,11 @@ bool KMLToolApp::OnInit(){
     this->controller = new KMLToolController(view);
     this->controller->show();
     return true;
+}
+
+int KMLToolApp::OnExit(){
+    delete this->controller;
+    return 0;
 }
 
 KMLToolController::KMLToolController(MainFrame * view){
@@ -75,15 +81,8 @@ void KMLToolController::OnSubmit(wxCommandEvent &event){
             index
         );
     }
-    
 
-    std::cout << this->view->text_label->GetValue() << std::endl;
-    std::cout << this->view->m_kml_file->GetTextCtrlValue() << std::endl;  
-    std::cout << this->view->m_dir_output->GetTextCtrlValue() << std::endl;  
-    std::cout << this->view->m_notebook1->GetSelection() << std::endl;  
-
-
-    
-    std::cout << "Hello world" << std::endl;
+        wxMessageBox("Konversi Sukses",
+                 "Sukses", wxOK | wxICON_INFORMATION, this->view);
 
 }

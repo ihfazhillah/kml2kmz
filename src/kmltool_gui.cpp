@@ -82,7 +82,13 @@ void KMLToolController::OnSubmit(wxCommandEvent &event){
         }
 
         coordinates coordinate_items = get_coordinates(kml_path);
+
+        #ifdef _WIN32
+        mkdir(label.c_str());
+        #else 
         mkdir(label.c_str(), 0777);
+        #endif
+        
         for (int i = 0; i < coordinate_items.size; i++)
         {
             wxYield();

@@ -9,8 +9,8 @@
 
 class KMLToolController {
     public:
-        MainFrame * view;
-        KMLToolController(MainFrame*);
+        MainPanel * view;
+        KMLToolController(MainPanel*);
         void OnSubmit(wxCommandEvent &);
 
         void show(){
@@ -31,11 +31,12 @@ wxIMPLEMENT_APP(KMLToolApp);
 
 bool KMLToolApp::OnInit(){
     MainFrame * view = new MainFrame(nullptr);
-    this->controller = new KMLToolController(view);
+    MainPanel * panel = new MainPanel(view);
+    this->controller = new KMLToolController(panel);
 
     // default directory
     std::string curdir = std::filesystem::current_path().string();
-    view->m_dir_output->SetDirName(wxFileName(curdir));
+    panel->m_dir_output->SetDirName(wxFileName(curdir));
 
     this->controller->show();
     return true;
@@ -46,7 +47,7 @@ int KMLToolApp::OnExit(){
     return 0;
 }
 
-KMLToolController::KMLToolController(MainFrame * view){
+KMLToolController::KMLToolController(MainPanel * view){
     this->view = view;
     this->view->btn_submit->Bind(wxEVT_BUTTON, &KMLToolController::OnSubmit, this);
 }

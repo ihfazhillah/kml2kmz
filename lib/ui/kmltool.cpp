@@ -12,7 +12,25 @@
 MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxSize( 250,400 ), wxDefaultSize );
+	this->SetForegroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_WINDOWTEXT ) );
+	this->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_APPWORKSPACE ) );
 
+	wxBoxSizer* bSizer5;
+	bSizer5 = new wxBoxSizer( wxVERTICAL );
+
+
+	this->SetSizer( bSizer5 );
+	this->Layout();
+
+	this->Centre( wxVERTICAL );
+}
+
+MainFrame::~MainFrame()
+{
+}
+
+MainPanel::MainPanel( wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name ) : wxPanel( parent, id, pos, size, style, name )
+{
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
@@ -97,10 +115,8 @@ MainFrame::MainFrame( wxWindow* parent, wxWindowID id, const wxString& title, co
 
 	this->SetSizer( bSizer1 );
 	this->Layout();
-
-	this->Centre( wxVERTICAL );
 }
 
-MainFrame::~MainFrame()
+MainPanel::~MainPanel()
 {
 }

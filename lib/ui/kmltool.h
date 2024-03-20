@@ -9,14 +9,15 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
-#include <wx/string.h>
-#include <wx/stattext.h>
+#include <wx/sizer.h>
 #include <wx/gdicmn.h>
+#include <wx/string.h>
+#include <wx/frame.h>
 #include <wx/font.h>
 #include <wx/colour.h>
 #include <wx/settings.h>
+#include <wx/stattext.h>
 #include <wx/textctrl.h>
-#include <wx/sizer.h>
 #include <wx/statbox.h>
 #include <wx/filepicker.h>
 #include <wx/panel.h>
@@ -25,7 +26,6 @@
 #include <wx/icon.h>
 #include <wx/notebook.h>
 #include <wx/button.h>
-#include <wx/frame.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -33,6 +33,23 @@
 /// Class MainFrame
 ///////////////////////////////////////////////////////////////////////////////
 class MainFrame : public wxFrame
+{
+	private:
+
+	protected:
+
+	public:
+
+		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("KML to KMZ"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,400 ), long style = wxCAPTION|wxDEFAULT_FRAME_STYLE|wxFRAME_SHAPED|wxTAB_TRAVERSAL );
+
+		~MainFrame();
+
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class MainPanel
+///////////////////////////////////////////////////////////////////////////////
+class MainPanel : public wxPanel
 {
 	private:
 
@@ -51,9 +68,9 @@ class MainFrame : public wxFrame
 		wxDirPickerCtrl* m_dir_output;
 		wxButton* btn_submit;
 
-		MainFrame( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("KML to KMZ"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,400 ), long style = wxDEFAULT_FRAME_STYLE|wxFRAME_SHAPED|wxTAB_TRAVERSAL );
+		MainPanel( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,400 ), long style = wxTAB_TRAVERSAL, const wxString& name = wxEmptyString );
 
-		~MainFrame();
+		~MainPanel();
 
 };
 

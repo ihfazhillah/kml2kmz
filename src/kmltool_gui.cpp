@@ -14,7 +14,7 @@ class KMLToolController {
         void OnSubmit(wxCommandEvent &);
 
         void show(){
-            this->view->Show(true);
+            this->view->GetParent()->Show(true);
         }
 };
 

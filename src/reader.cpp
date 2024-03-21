@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <archive.h>
+#include "archive.h"
 #include <filesystem>
 
-#include <archive_entry.h>
+#include "archive_entry.h"
 #include "../lib/pugixml/pugixml.hpp"
 #include "reader.h"
 

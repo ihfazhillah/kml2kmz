@@ -1,10 +1,15 @@
-#include <wx/wx.h>
+#include "wx/setup.h"
+
+#include "wx/wx.h"
+
+// #include "wx/setup.h"
+
 #include <iostream>
 #include <string>
 #include <filesystem>
 
 #include "../lib/ui/kmltool.h"
-#include <wx/event.h>
+#include "wx/event.h"
 #include "reader.h"
 
 class KMLToolController {
